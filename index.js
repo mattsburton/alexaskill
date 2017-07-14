@@ -48,7 +48,7 @@ app.get('/', function(req, res) {
 
   var randomText = textArray[randomNumber];
 
-    res.json({ message: 'The forecaster is up and running.T' randomText, since: (new Date()).toString() });
+    res.json({ message: 'The forecaster is up and running.T' +randomText, since: (new Date()).toString() });
 });
 
 app.get('/forecast', requestVerifier, function(req, res) {
