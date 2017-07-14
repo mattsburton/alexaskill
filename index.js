@@ -35,17 +35,20 @@ app.use(bodyParser.json({
 
 app.get('/', function(req, res) {
 
-      var textArray = [
-          'song1.ogg',
-          'song2.ogg'
-      ];
-      var randomNumber = Math.floor(Math.random()*textArray.length);
+  Var textArray = [
+      "Money is the wealthy man's curtain which hides all his defects from the world.",
+      "Worry is a down payment on a problem you may never have.",
+      "I don't know the key to success, but the key to failure is trying to please everybody.",
+      "Great spirits have always faced violent opposition from mediocre minds. - Einstein",
+      "A positive attitude may not solve all your problems, but it will annoy enough people to make it worth the effort. - Herm Albright",
+      "Everything has Beauty"
+  ];
+  var randomNumber = Math.floor(Math.random()*textArray.length);
 
 
-          var randomText = textArray[randomNumber];
-          console.log('Test'+randomText);
+  var randomText = textArray[randomNumber];
 
-    res.json({ message: 'The forecaster is up and running.T', since: (new Date()).toString() });
+    res.json({ message: 'The forecaster is up and running.T' randomText, since: (new Date()).toString() });
 });
 
 app.get('/forecast', requestVerifier, function(req, res) {
