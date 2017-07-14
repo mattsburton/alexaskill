@@ -48,14 +48,14 @@ app.get('/', function(req, res) {
 
   var randomText = textArray[randomNumber];
 
-    res.json({ message: 'The forecaster is up and running' +randomText, since: (new Date()).toString() });
+    res.json({ message: 'The forecaster is up and running.T' +randomText, since: (new Date()).toString() });
 });
 
 app.get('/forecast', requestVerifier, function(req, res) {
   if (req.body.request.type === 'LaunchRequest') { /* ... */ }
   else if (req.body.request.type === 'SessionEndedRequest') { /* ... */ }
   else if (req.body.request.type === 'IntentRequest' &&
-           req.body.request.intent.name === 'Quoteme') {
+           req.body.request.intent.name === 'Forecast') {
 
     if (!req.body.request.intent.slots.Day ||
         !req.body.request.intent.slots.Day.value) {
@@ -87,7 +87,7 @@ app.get('/forecast', requestVerifier, function(req, res) {
         "shouldEndSession": true,
         "outputSpeech": {
           "type": "SSML",
-          "ssml": "<speak>"+randomText+"</speak>"
+          "ssml": "<speak>Working?</speak>"
         }
       }
     });
