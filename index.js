@@ -55,7 +55,7 @@ app.get('/forecast', requestVerifier, function(req, res) {
   if (req.body.request.type === 'LaunchRequest') { /* ... */ }
   else if (req.body.request.type === 'SessionEndedRequest') { /* ... */ }
   else if (req.body.request.type === 'IntentRequest' &&
-           req.body.request.intent.name === 'Forecast') {
+           req.body.request.intent.name === 'Quoteme') {
 
     if (!req.body.request.intent.slots.Day ||
         !req.body.request.intent.slots.Day.value) {
