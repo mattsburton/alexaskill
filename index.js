@@ -51,7 +51,7 @@ app.get('/', function(req, res) {
     res.json({ message: 'The forecaster is up and running.T' +randomText, since: (new Date()).toString() });
 });
 
-app.get('/forecast', requestVerifier, function(req, res) {
+app.post('/forecast', requestVerifier, function(req, res) {
   if (req.body.request.type === 'LaunchRequest') { /* ... */ }
   else if (req.body.request.type === 'SessionEndedRequest') { /* ... */ }
   else if (req.body.request.type === 'IntentRequest' &&
@@ -87,7 +87,7 @@ app.get('/forecast', requestVerifier, function(req, res) {
         "shouldEndSession": true,
         "outputSpeech": {
           "type": "SSML",
-          "ssml": "<speak>Working?</speak>"
+          "ssml": "<speak>"+randomText+"</speak>"
         }
       }
     });
