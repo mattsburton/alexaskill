@@ -35,7 +35,7 @@ app.use(bodyParser.json({
 
 app.get('/', function(req, res) {
 
-  Var textArray = [
+  var textArray = [
       "Money is the wealthy man's curtain which hides all his defects from the world.",
       "Worry is a down payment on a problem you may never have.",
       "I don't know the key to success, but the key to failure is trying to please everybody.",
