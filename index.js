@@ -13,7 +13,7 @@ function requestVerifier(req, res, next) {
         req.rawBody,
         function verificationCallback(err) {
             if (err) {
-             //   res.status(401).json({ message: 'Verification Failure', error: err });
+                res.status(401).json({ message: 'Verification Failure', error: err });
             } else {
                 next();
             }
@@ -34,7 +34,18 @@ app.use(bodyParser.json({
 
 
 app.get('/', function(req, res) {
-    res.json({ message: 'The forecaster is up and running.', since: (new Date()).toString() });
+
+      var textArray = [
+          'song1.ogg',
+          'song2.ogg'
+      ];
+      var randomNumber = Math.floor(Math.random()*textArray.length);
+
+
+          var randomText = textArray[randomNumber];
+          console.log('Test'+randomText);
+
+    res.json({ message: 'The forecaster is up and running.T', since: (new Date()).toString() });
 });
 
 app.post('/forecast', requestVerifier, function(req, res) {
@@ -53,13 +64,27 @@ app.post('/forecast', requestVerifier, function(req, res) {
     // Do your business logic to get weather data here!
     // Then send a JSON response...
 
+    var textArray = [
+        "Money is the wealthy man's curtain which hides all his defects from the world.",
+        "Worry is a down payment on a problem you may never have.",
+        "I don't know the key to success, but the key to failure is trying to please everybody.",
+        "Great spirits have always faced violent opposition from mediocre minds. - Einstein",
+        "A positive attitude may not solve all your problems, but it will annoy enough people to make it worth the effort. - Herm Albright",
+        "Everything has Beauty"
+    ];
+    var randomNumber = Math.floor(Math.random()*textArray.length);
+
+
+    var randomText = textArray[randomNumber];
+
+
     res.json({
       "version": "1.0",
       "response": {
         "shouldEndSession": true,
         "outputSpeech": {
           "type": "SSML",
-          "ssml": "<speak>Looks like a great day!</speak>"
+          "ssml": "<speak>"+randomText+"</speak>"
         }
       }
     });
