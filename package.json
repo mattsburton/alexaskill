@@ -1,15 +1,20 @@
 {
-  "name": "aws-skills",
+  "name": "node",
   "version": "1.0.0",
-  "main": "index.js",
-    "scripts": {
-    "start": "node index.js"
-  	},
-  "author": "Matt B",
+  "description": "",
+  "main": "initial.js",
+  "scripts": {
+    "dev": "nodemon initial.js"
+  },
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "alexa-verifier": "0.0.5",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0"
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongodb": "^2.2.29",
+    "mongoose": "*"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
