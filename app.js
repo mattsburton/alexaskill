@@ -12,9 +12,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 //Save the quote to mongo
 
-//Express routes to save and serve data - we should move this to a sperate file for transparancy
+
 app.post('/addQuote', (req, res) => {
-  var newQuote = quote({ //This builds up the JSON array from the form
+  var newQuote = quote({
     name: req.body.name,
     quote: req.body.quote
   });
@@ -23,7 +23,6 @@ app.post('/addQuote', (req, res) => {
    })
   res.redirect('/')
 })
-
 
 app.get('/api/quotes', function(req, res) {
          // use mongoose to get all todos in the database
@@ -36,7 +35,7 @@ app.get('/api/quotes', function(req, res) {
 
 // application -------------------------------------------------------------
     app.get('/', function(req, res) {
-        res.sendFile(__dirname + '/index.html'); // load the single view file (angular will handle the page changes on the front-end) Essentially the form!
+        res.sendFile(__dirname + '/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 
 
