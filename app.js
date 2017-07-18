@@ -13,30 +13,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 //Save the quote to mongo
 
 
-// app.post('/addQuote', (req, res) => {
-//   var newQuote = quote({
-//     name: req.body.name,
-//     quote: req.body.quote
-//   });
-//    newQuote.save(function(err) {
-//      if (err) throw err;
-//    })
-//   res.redirect('/')
-// })
-//
-// app.get('/api/quotes', function(req, res) {
-//          // use mongoose to get all todos in the database
-//          quote.find(function(err, quotes) {
-//            if (err)
-//                res.send(err)
-//            res.json(quotes); // return all todos in JSON format
-//          });
-// });
-//
-// // application -------------------------------------------------------------
-//     app.get('/', function(req, res) {
-//         res.sendFile(__dirname + '/index.html'); // load the single view file (angular will handle the page changes on the front-end)
-//     });
+// application -------------------------------------------------------------
+    app.get('/', function(req, res) {
+        res.sendFile(__dirname + '/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+    });
 
 
 app.listen(3000, function() {

@@ -30,3 +30,15 @@ var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 
                     console.log ('Succeeded connected to: ' + uristring);
                   }
                 });
+
+                
+                var quoteSchema = new Schema({
+                        name : String,
+                        quote : String
+                });
+
+
+                var quoteModel = mongoose.model('Quote', quoteSchema);
+
+                // make this available to our users in our Node applications
+                module.exports = quoteModel;
