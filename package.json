@@ -7,13 +7,17 @@
       "node" : ">=4.1.1",
       "npm" : ">=2.1.x"
   },
+  "scripts": {
+    "dev": "nodemon initial.js",
+  },
   "repository": "https://github.com/mongolab/hello-mongoose.git",
   "authors": [ "Ben Wen", "Chris Chang" ],
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "mongoose": ">=4.1.11"
+    "mongoose": ">=4.1.11",
+    "body-parser": "^1.17.2",
   },
   "changelog" : [{"0.0.0": "Initial release"},
 		             {"0.1.0": "Update to Mongoose 3.5.7; new MongoClient semantics"},
