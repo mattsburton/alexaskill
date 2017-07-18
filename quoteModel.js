@@ -1,7 +1,7 @@
 // grab the things we need
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/timeline-app');
+mongoose.connect('mongodb://localhost/HelloMongoose');
 
 var quoteSchema = new Schema({
         name : String,
