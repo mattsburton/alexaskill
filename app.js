@@ -36,7 +36,7 @@
 // Preamble
 var http = require ('http');	     // For serving a basic web page.
 var mongoose = require ("mongoose"); // The reason for this demo.
-
+const express = require('express');
 // Here we find an appropriate database to connect to, defaulting to
 // localhost if we don't find one.
 var uristring =
@@ -71,22 +71,7 @@ var userSchema = new mongoose.Schema({
 // nonexistent) the 'PowerUsers' collection in the MongoDB database
 var PUser = mongoose.model('PowerUsers', userSchema);
 
-// Clear out old data
-PUser.remove({}, function(err) {
-  if (err) {
-    console.log ('error deleting old data.');
-  }
-});
-
-// Creating one user.
-var johndoe = new PUser ({
-  name: { first: 'John', last: 'Doe' },
-  age: 25
-});
-
-// Saving it to the database.
-johndoe.save(function (err) {if (err) console.log ('Error on save!')});
-
+/
 // Creating more users manually
 var janedoe = new PUser ({
   name: { first: 'Jane', last: 'Doe' },
@@ -94,12 +79,6 @@ var janedoe = new PUser ({
 });
 janedoe.save(function (err) {if (err) console.log ('Error on save!')});
 
-// Creating more users manually
-var alicesmith = new PUser ({
-  name: { first: 'Alice', last: 'Smith' },
-  age: 45
-});
-alicesmith.save(function (err) {if (err) console.log ('Error on save!')});
 
 
 // In case the browser connects before the database is connected, the
