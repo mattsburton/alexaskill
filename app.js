@@ -2,7 +2,7 @@ var http = require('http');
 var express = require('express');
 var bodyParser= require('body-parser')
 var app = express()
-var quote = require('./quoteModel');
+//var quote = require('./quoteModel');
 app.use( bodyParser.json() );
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
@@ -14,38 +14,38 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 // Get a random entry
 
-
-app.post('/addQuote', (req, res) => {
-  var newQuote = quote({
-    name: req.body.name,
-    quote: req.body.quote
-  });
-   newQuote.save(function(err) {
-     if (err) throw err;
-   })
-  res.redirect('/')
-})
-
-app.get('/api/quotes', function(req, res) {
-         // use mongoose to get all todos in the database
-         quote.find(function(err, quotes) {
-           if (err)
-               res.send(err)
-           res.json(quotes); // return all todos in JSON format
-         });
-});
-
-app.get('/api/getrandom', function(req, res) {
-         // use mongoose to get all todos in the database
-
-         quote.find(function(err, quotes) {
-           if (err)
-               res.send(err)
-                var count = quotes.length
-                var random = Math.floor(Math.random() * count)
-           res.json(quotes[random]); // return all todos in JSON format
-         });
-});
+  // 
+  // app.post('/addQuote', (req, res) => {
+  // var newQuote = quote({
+  //   name: req.body.name,
+  //   quote: req.body.quote
+  // });
+  //  newQuote.save(function(err) {
+  //    if (err) throw err;
+  //  })
+  // res.redirect('/')
+  // })
+  //
+  // app.get('/api/quotes', function(req, res) {
+  //        // use mongoose to get all todos in the database
+  //        quote.find(function(err, quotes) {
+  //          if (err)
+  //              res.send(err)
+  //          res.json(quotes); // return all todos in JSON format
+  //        });
+  // });
+  //
+  // app.get('/api/getrandom', function(req, res) {
+  //        // use mongoose to get all todos in the database
+  //
+  //        quote.find(function(err, quotes) {
+  //          if (err)
+  //              res.send(err)
+  //               var count = quotes.length
+  //               var random = Math.floor(Math.random() * count)
+  //          res.json(quotes[random]); // return all todos in JSON format
+  //        });
+  // });
 
 // application -------------------------------------------------------------
     app.get('/', function(req, res) {
